@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق الأطفال - قيم جميلة وثقافة عربية أصيلة</title>
+    <meta name="description" content="عالم من الشخصيات والقصص والتجارب التفاعلية التي تزرع القيم النبيلة والثقافة العربية في نفوس أطفالنا بأسلوب ممتع وآمن.">
+    
+    <!-- Google Fonts: Tajawal & Cairo for Arabic Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. BRAND COLOR PALETTE & DESIGN SYSTEM (STRICT COLOR MATCHING)
+           ========================================================================== */
+        :root {
+            /* Palette directly extracted from image specifications */
+            --color-primary: #425B9A;        /* Deep Navy Blue */
+            --color-secondary: #76C0EC;      /* Bright Sky Blue */
+            --color-bg-cream: #FFF6DC;       /* Cream Light Background */
+            --color-accent-pink: #FF95A5;    /* Vibrant Soft Pink/Coral */
+
+            /* Derived functional shades for WCAG contrast & UI depth */
+            --color-primary-dark: #2F4273;
+            --color-primary-light: #5A74B8;
+            --color-secondary-light: #BFE3F8;
+            --color-secondary-dark: #4A9ED6;
+            --color-cream-surface: #FFFFFF;
+            --color-cream-card: #FFFBF0;
+            --color-pink-hover: #FF7B8E;
+            
+            /* Typography & Neutrals */
+            --color-text-main: #2A3656;      /* High contrast dark blue-gray */
+            --color-text-muted: #5C6A8A;
+            --color-text-light: #FFFFFF;
+            --color-border-soft: rgba(66, 91, 154, 0.12);
+            --color-shadow: rgba(66, 91, 154, 0.08);
+
+            /* Elevation & Radius */
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-full: 9999px;
+            --shadow-card: 0 12px 32px var(--color-shadow);
+            --shadow-hover: 0 20px 40px rgba(66, 91, 154, 0.15);
+            --shadow-glow-pink: 0 10px 25px rgba(255, 149, 165, 0.35);
+
+            /* Font Families */
+            --font-heading: 'Cairo', system-ui, -apple-system, sans-serif;
+            --font-body: 'Tajawal', system-ui, -apple-system, sans-serif;
+        }
+
+        /* ==========================================================================
+           2. GLOBAL RESET & BASE STYLES
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg-cream);
+            color: var(--color-text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            direction: rtl;
+            text-align: right;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--color-primary-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        button, input {
+            font-family: inherit;
+        }
+
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin-inline: auto;
+            padding-inline: 1.5rem;
+        }
+
+        /* Utility Section Wrapper */
+        .section-padding {
+            padding-block: 5rem 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding-block: 3.5rem;
+            }
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            max-width: 760px;
+            margin-inline: auto;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.2rem;
+            background-color: rgba(255, 149, 165, 0.2);
+            color: var(--color-primary-dark);
+            border: 1px solid rgba(255, 149, 165, 0.4);
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.85rem;
+            }
+            .section-subtitle {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* ==========================================================================
+           3. BUTTONS & INTERACTIVE ELEMENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.95rem 2.2rem;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent-pink);
+            color: #FFFFFF;
+            box-shadow: var(--shadow-glow-pink);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-pink-hover);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(255, 149, 165, 0.45);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-cream-surface);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .btn-sky {
+            background-color: var(--color-secondary);
+            color: var(--color-primary-dark);
+        }
+
+        .btn-sky:hover {
+            background-color: var(--color-secondary-dark);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        /* ==========================================================================
+           4. NAVIGATION BAR
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: rgba(255, 246, 220, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border-soft);
+            padding-block: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(66, 91, 154, 0.1);
+            padding-block: 0.6rem;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(66, 91, 154, 0.25);
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .logo-text span {
+            color: var(--color-accent-pink);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.05rem;
+            position: relative;
+            padding-block: 0.25rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0%;
+            height: 3px;
+            background-color: var(--color-accent-pink);
+            border-radius: var(--radius-full);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        @media (max-width: 992px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                max-width: 320px;
+                height: calc(100vh - 70px);
+                background-color: var(--color-cream-surface);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .nav-menu.open {
+                right: 0;
+            }
+
+            .nav-actions .btn {
+                display: none;
+            }
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION
+           ========================================================================== */
+        .hero {
+            position: relative;
+            padding-top: 9rem;
+            padding-bottom: 5rem;
+            overflow: hidden;
+            background: radial-gradient(circle at 80% 20%, rgba(118, 192, 236, 0.25) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(255, 149, 165, 0.2) 0%, transparent 45%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1.5px solid var(--color-secondary);
+            padding: 0.4rem 1.1rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(118, 192, 236, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            line-height: 1.25;
+            color: var(--color-primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title span {
+            color: var(--color-accent-pink);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            max-width: 90%;
+            line-height: 1.8;
+        }
+
+        .hero-motto {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-md);
+            border-right: 4px solid var(--color-accent-pink);
+            margin-bottom: 2.2rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Hero Graphic & Mockup Showcase */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-bg-blob {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            background: linear-gradient(135deg, var(--color-secondary-light), var(--color-bg-cream));
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: blobMorph 12s infinite alternate ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes blobMorph {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            100% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
+        }
+
+        /* Smartphone Mockup CSS Frame */
+        .phone-mockup {
+            position: relative;
+            z-index: 3;
+            width: 290px;
+            height: 580px;
+            background-color: #1E293B;
+            border-radius: 44px;
+            padding: 12px;
+            box-shadow: 0 25px 60px rgba(66, 91, 154, 0.25);
+            border: 4px solid #334155;
+            transition: transform 0.5s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: translateY(-8px) rotate(-1deg);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 20px;
+            background-color: #0F172A;
+            border-radius: 0 0 14px 14px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-cream-surface);
+            border-radius: 34px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .app-screen-header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: white;
+            padding: 2.2rem 1rem 1.2rem;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .app-screen-body {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            overflow-y: auto;
+        }
+
+        .app-card-mini {
+            background-color: var(--color-cream-card);
+            border: 1px solid var(--color-border-soft);
+            border-radius: 14px;
+            padding: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .app-card-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background-color: var(--color-secondary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary-dark);
+            font-size: 1.1rem;
+        }
+
+        /* Floating Character Highlights */
+        .hero-floating-card {
+            position: absolute;
+            z-index: 4;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid var(--color-border-soft);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            animation: floatAnim 4s ease-in-out infinite alternate;
+        }
+
+        .hero-floating-card.card-1 {
+            top: 15%;
+            right: -10px;
+        }
+
+        .hero-floating-card.card-2 {
+            bottom: 12%;
+            left: -15px;
+            animation-delay: -2s;
+        }
+
+        @keyframes floatAnim {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-12px); }
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-subtitle {
+                margin-inline: auto;
+            }
+            .hero-motto {
+                justify-content: center;
+            }
+            .hero-cta-group {
+                justify-content: center;
+            }
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            .phone-mockup {
+                width: 260px;
+                height: 520px;
+            }
+            .hero-floating-card {
+                display: none;
+            }
+        }
+
+        /* ==========================================================================
+           6. THE PROBLEM / PARENT'S REAL CONCERN
+           ========================================================================== */
+        .problem-section {
+            background-color: var(--color-cream-surface);
+            position: relative;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .problem-card-box {
+            background-color: var(--color-bg-cream);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            border: 2px dashed var(--color-secondary);
+            position: relative;
+        }
+
+        .problem-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .problem-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--color-accent-pink);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .solution-icon {
+            background-color: var(--color-secondary);
+            color: var(--color-primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==========================================================================
+           7. MEET THE CHARACTERS (SHOWCASE)
+           ========================================================================== */
+        .characters-section {
+            background: linear-gradient(180deg, var(--color-bg-cream) 0%, #FFF3CE 100%);
+            position: relative;
+        }
+
+        .character-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .char-tab-btn {
+            background-color: var(--color-cream-surface);
+            border: 2px solid var(--color-border-soft);
+            padding: 0.7rem 1.6rem;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--color-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .char-tab-btn.active,
+        .char-tab-btn:hover {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+            box-shadow: 0 6px 18px rgba(66, 91, 154, 0.25);
+        }
+
+        .character-display {
+            background-color: var(--color-cream-surface);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--color-border-soft);
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .char-avatar-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .char-avatar-bg {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-secondary-light), var(--color-bg-cream));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.8);
+        }
+
+        .char-svg-placeholder {
+            width: 170px;
+            height: 170px;
+        }
+
+        .char-badge-value {
+            display: inline-block;
+            background-color: var(--color-accent-pink);
+            color: white;
+            font-weight: 800;
+            padding: 0.35rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .char-name {
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .char-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-secondary-dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .char-desc {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+        }
+
+        .char-scenario-box {
+            background-color: var(--color-bg-cream);
+            padding: 1.25rem 1.5rem;
+            border-radius: var(--radius-md);
+            border-right: 4px solid var(--color-secondary);
+        }
+
+        .char-scenario-title {
+            font-weight: 800;
+            color: var(--color-primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 868px) {
+            .character-display {
+                grid-template-columns: 1fr;
+                padding: 1.8rem;
+                text-align: center;
+            }
+            .char-scenario-box {
+                text-align: right;
+            }
+        }
+
+        /* ==========================================================================
+           8. VALUES IN EVERYDAY LIFE
+           ========================================================================== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--color-cream-surface);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            border: 1px solid var(--color-border-soft);
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-secondary), var(--color-accent-pink));
+        }
+
+        .value-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .value-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background-color: var(--color-secondary-light);
+            color: var(--color-primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .value-title {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+        }
+
+        .value-description {
+            color: var(--color-text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .value-example {
+            font-size: 0.95rem;
+            background-color: var(--color-bg-cream);
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius-sm);
+            color: var(--color-primary-dark);
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           9. ARAB CULTURE SECTION
+           ========================================================================== */
+        .culture-section {
+            background-color: var(--color-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-section .section-title {
+            color: #FFFFFF;
+        }
+
+        .culture-section .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .culture-section .section-badge {
+            background-color: rgba(255,255,255,0.15);
+            color: var(--color-bg-cream);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .culture-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .culture-card:hover {
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateY(-5px);
+        }
+
+        .culture-card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--color-accent-pink);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-inline: auto;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-glow-pink);
+        }
+
+        .culture-card-title {
+            font-size: 1.35rem;
+            color: white;
+            margin-bottom: 0.8rem;
+        }
+
+        .culture-card-desc {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Decorative Arches Overlay */
+        .arch-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.04;
+            pointer-events: none;
+            background-image: radial-gradient(var(--color-bg-cream) 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        /* ==========================================================================
+           10. APP EXPERIENCE & MOCKUP SHOWCASE
+           ========================================================================== */
+        .showcase-section {
+            background-color: var(--color-bg-cream);
+        }
+
+        .screens-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .screen-btn {
+            background-color: var(--color-cream-surface);
+            border: 2px solid var(--color-border-soft);
+            padding: 0.6rem 1.4rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            color: var(--color-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .screen-btn.active, .screen-btn:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary-dark);
+            border-color: var(--color-secondary);
+        }
+
+        .screen-preview-container {
+            max-width: 900px;
+            margin-inline: auto;
+            background-color: var(--color-cream-surface);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--color-border-soft);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .preview-phone-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .preview-details-title {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .preview-details-text {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .feature-check-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .feature-check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+        }
+
+        .feature-check-item i {
+            color: var(--color-secondary-dark);
+        }
+
+        @media (max-width: 820px) {
+            .screen-preview-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .feature-check-list {
+                align-items: flex-start;
+                text-align: right;
+            }
+        }
+
+        /* ==========================================================================
+           11. PARENTS TRUST & REASSURANCE
+           ========================================================================== */
+        .parents-section {
+            background-color: var(--color-cream-surface);
+        }
+
+        .parents-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .parent-feature-card {
+            background-color: var(--color-cream-card);
+            padding: 2.2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-soft);
+            text-align: center;
+        }
+
+        .parent-feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(118, 192, 236, 0.25);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-inline: auto;
+            margin-bottom: 1.2rem;
+        }
+
+        /* ==========================================================================
+           12. FINAL CALL TO ACTION & INTEREST FORM
+           ========================================================================== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-bg-cream) 100%);
+            position: relative;
+            text-align: center;
+        }
+
+        .cta-box {
+            background-color: var(--color-cream-surface);
+            max-width: 840px;
+            margin-inline: auto;
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 2.5rem;
+            box-shadow: var(--shadow-card);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .cta-title {
+            font-size: 2.4rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2.2rem;
+        }
+
+        .early-access-form {
+            display: flex;
+            gap: 0.8rem;
+            max-width: 520px;
+            margin-inline: auto;
+            flex-wrap: wrap;
+        }
+
+        .form-input {
+            flex: 1;
+            min-width: 260px;
+            padding: 1rem 1.4rem;
+            border-radius: var(--radius-full);
+            border: 2px solid var(--color-border-soft);
+            background-color: var(--color-bg-cream);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--color-primary);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            font-weight: 700;
+            color: #10B981;
+            display: none;
+        }
+
+        /* ==========================================================================
+           13. FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: var(--color-primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            margin-top: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.15rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background-color: var(--color-accent-pink);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        @media (max-width: 868px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       NAVBAR
+       ========================================================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                <div class="logo-text">عالم<span>القيم</span></div>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#about" class="nav-link">الفكرة</a></li>
+                <li><a href="#characters" class="nav-link">عالم الشخصيات</a></li>
+                <li><a href="#values" class="nav-link">القيم</a></li>
+                <li><a href="#culture" class="nav-link">الثقافة العربية</a></li>
+                <li><a href="#parents" class="nav-link">للأهل</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#cta" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.95rem;">
+                    <i class="fa-solid fa-rocket"></i> سجّل اهتمامك
+                </a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="قائمة التنقل">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Text Content -->
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <i class="fa-solid fa-sparkles" style="color: var(--color-accent-pink);"></i>
+                        تجربة تعليمية وتفاعلية جديدة للأطفال
+                    </div>
+                    <h1 class="hero-title">
+                        الشخصيات اللي بحبّها طفلك… <br>
+                        <span>بتعلّمه القيم</span> اللي بتكبر معه.
+                    </h1>
+                    <p class="hero-subtitle">
+                        عالم من الشخصيات الممتعة، القصص المشوّقة والتجارب التفاعلية، يقرّب لطفلك القيم الجميلة والثقافة العربية بأسلوب رقمي يلائم عالمه.
+                    </p>
+                    <div class="hero-motto">
+                        <i class="fa-solid fa-heart" style="color: var(--color-accent-pink);"></i>
+                        متعة يكتشفها الطفل، وقيم يعتزّ بها الأهل.
+                    </div>
+                    <div class="hero-cta-group">
+                        <a href="#cta" class="btn btn-primary">
+                            <i class="fa-solid fa-star"></i> سجّل اهتمامك الآن
+                        </a>
+                        <a href="#characters" class="btn btn-secondary">
+                            <i class="fa-solid fa-compass"></i> استكشف الشخصيات
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Showcase (Mockup + Floating Elements) -->
+                <div class="hero-visual">
+                    <div class="hero-bg-blob"></div>
+
+                    <!-- Floating Card 1 -->
+                    <div class="hero-floating-card card-1">
+                        <div style="background: rgba(255,149,165,0.2); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-accent-pink);">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 800; font-size: 0.9rem; color: var(--color-primary-dark);">قيمة اليوم</div>
+                            <div style="font-size: 0.8rem; color: var(--color-text-muted);">مساعدة الآخرين بحب</div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card 2 -->
+                    <div class="hero-floating-card card-2">
+                        <div style="background: rgba(118,192,236,0.3); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-primary);">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 800; font-size: 0.9rem; color: var(--color-primary-dark);">حكاية تفاعلية</div>
+                            <div style="font-size: 0.8rem; color: var(--color-text-muted);">سرّ الصدق مع "نور"</div>
+                        </div>
+                    </div>
+
+                    <!-- CSS Mobile Frame -->
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="app-screen-header">
+                                <div style="font-size: 0.8rem; opacity: 0.85;">مرحباً بك يا بطل!</div>
+                                <div style="font-weight: 800; font-size: 1.1rem; margin-top: 2px;">عالم المغامرات اليومية</div>
+                            </div>
+                            <div class="app-screen-body">
+                                <div class="app-card-mini">
+                                    <div class="app-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div>
+                                        <div style="font-weight: 800; font-size: 0.85rem; color: var(--color-primary);">مغامرة سند</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-muted);">مساعدة الجار كرم</div>
+                                    </div>
+                                </div>
+                                <div class="app-card-mini" style="background-color: rgba(255,149,165,0.15); border-color: rgba(255,149,165,0.3);">
+                                    <div class="app-card-icon" style="background-color: var(--color-accent-pink); color: white;"><i class="fa-solid fa-crown"></i></div>
+                                    <div>
+                                        <div style="font-weight: 800; font-size: 0.85rem; color: var(--color-primary-dark);">شجرة الأفعال الطيبة</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-muted);">أضفت 3 أوراق جديدة اليوم!</div>
+                                    </div>
+                                </div>
+                                <div class="app-card-mini">
+                                    <div class="app-card-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                                    <div>
+                                        <div style="font-weight: 800; font-size: 0.85rem; color: var(--color-primary);">قصص كليلة ودمنة</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-muted);">حكاية التضامن والحكمة</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       THE PROBLEM / PARENT'S CONCERN
+       ========================================================================== -->
+    <section class="section-padding problem-section" id="about">
+        <div class="container">
+            <div class="problem-grid">
+                <div>
+                    <div class="section-badge">رؤيتنا التربوية</div>
+                    <h2 class="section-title">مش كل وقت الشاشة لازم يكون مجرد تسلية عابرة.</h2>
+                    <p class="section-subtitle">
+                        نعلم كم يقضي أطفالنا من الوقت أمام الشاشات الرقمية. القلق ليس من وقت الشاشة ذاته، بل من نوعية المحتوى الذي يتلقونه والآثار التي يتركها في سلوكهم وهويتهم.
+                    </p>
+                    <p style="margin-top: 1rem; color: var(--color-text-muted);">
+                        نهدف لتقديم بديل رقمي آمن ومثري، يحوّل وقت اللعب إلى فرصة حقيقية لبناء الشخصية واستكشاف الثقافة العربية الأصيلة.
+                    </p>
+                </div>
+
+                <div class="problem-card-box">
+                    <h3 style="color: var(--color-primary); font-size: 1.4rem; margin-bottom: 1rem;">كيف نحول التحدي إلى فرصة؟</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">
+                            <div class="problem-icon solution-icon"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <strong style="color: var(--color-primary-dark);">محتوى قيمي موجّه:</strong> غرس قيم الصدق والتعاون والتسامح بأسلوب حكواتي محبب بدلاً من المحتوى العشوائي.
+                            </div>
+                        </li>
+                        <li class="problem-item">
+                            <div class="problem-icon solution-icon"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <strong style="color: var(--color-primary-dark);">ارتباط بالهوية والثقافة:</strong> تقديم نماذج وشخصيات عربية تشبه بيئتنا ولغتنا وتاريخنا الجميل.
+                            </div>
+                        </li>
+                        <li class="problem-item">
+                            <div class="problem-icon solution-icon"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <strong style="color: var(--color-primary-dark);">مشاركة وتواصل أسري:</strong> خلق جسور حوار بين الأهل والطفل حول مواقف الحياة اليومية.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       MEET THE CHARACTERS
+       ========================================================================== -->
+    <section class="section-padding characters-section" id="characters">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">أبطال عالمنا</div>
+                <h2 class="section-title">تعرّف على شخصيات يحبها طفلك ويتعلم منها</h2>
+                <p class="section-subtitle">شخصيات أصلية مصممة بعناية لتلهم الأطفال وتصحبهم في رحلة يومية ممتعة.</p>
+            </div>
+
+            <!-- Character Tabs Filter -->
+            <div class="character-tabs">
+                <button class="char-tab-btn active" onclick="switchCharacter(0)">
+                    <i class="fa-solid fa-shield"></i> سند
+                </button>
+                <button class="char-tab-btn" onclick="switchCharacter(1)">
+                    <i class="fa-solid fa-lightbulb"></i> نور
+                </button>
+                <button class="char-tab-btn" onclick="switchCharacter(2)">
+                    <i class="fa-solid fa-hand-holding-heart"></i> كرم
+                </button>
+                <button class="char-tab-btn" onclick="switchCharacter(3)">
+                    <i class="fa-solid fa-seedling"></i> سلمى
+                </button>
+            </div>
+
+            <!-- Dynamic Character Card -->
+            <div class="character-display" id="characterDisplay">
+                <div class="char-avatar-container">
+                    <div class="char-avatar-bg">
+                        <!-- Custom SVG Vector Avatar for Sanad -->
+                        <svg class="char-svg-placeholder" viewBox="0 0 100 100" id="charSvg">
+                            <circle cx="50" cy="45" r="30" fill="#76C0EC" />
+                            <circle cx="50" cy="40" r="22" fill="#FFF6DC" />
+                            <!-- Friendly Eyes & Smile -->
+                            <circle cx="42" cy="38" r="3" fill="#425B9A" />
+                            <circle cx="58" cy="38" r="3" fill="#425B9A" />
+                            <path d="M 42 48 Q 50 55 58 48" stroke="#FF95A5" stroke-width="3" fill="none" stroke-linecap="round" />
+                            <!-- Crown/Hair style -->
+                            <path d="M 32 26 Q 50 12 68 26" fill="#425B9A" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="char-info">
+                    <span class="char-badge-value" id="charValue">قيمة التعاون والمساعدة</span>
+                    <h3 class="char-name" id="charName">سند</h3>
+                    <div class="char-role" id="charRole">صديق الجميع ورمز الشهامة والعمل الجماعي</div>
+                    <p class="char-desc" id="charDesc">
+                        سند طفل ذكي يحب الاكتشاف وتجربة بناء الأشياء مع أصدقائه. يتعلم الطفل مع سند كيف يكون عوناً للآخرين وكيف أن القوة الحقيقية تكمن في الاتحاد والمشاركة.
+                    </p>
+                    <div class="char-scenario-box">
+                        <div class="char-scenario-title"><i class="fa-solid fa-sun"></i> في الحياة اليومية:</div>
+                        <div id="charScenario" style="color: var(--color-text-muted); font-size: 0.95rem;">
+                            عندما تتناثر الألعاب في الغرفة، يبادر سند بتنظيم مسابقة ممتعة للجمع والتنظيم مع إخوته بابتسامة.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       VALUES IN EVERYDAY LIFE
+       ========================================================================== -->
+    <section class="section-padding" id="values">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">رحلة النمو الاجتماعي</div>
+                <h2 class="section-title">قيم أصيلة تتحول إلى سلوكيات يومية</h2>
+                <p class="section-subtitle">لا نقدم نصائح مباشرة، بل نصنع تجارب ومواقف تفاعلية يستنتج منها الطفل القيمة بنفسه.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon-box"><i class="fa-solid fa-heart-circle-check"></i></div>
+                        <h3 class="value-title">الصدق والأمانة</h3>
+                    </div>
+                    <p class="value-description">الاعتراف بالحقيقة بشجاعة والشعور بالطمأنينة عند قول الحق دائماً.</p>
+                    <div class="value-example"><i class="fa-solid fa-quote-right" style="color: var(--color-accent-pink);"></i> مثال: الشجاعة في قول الحقيقة عند وقوع خطأ غير مقصود.</div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon-box"><i class="fa-solid fa-people-hold"></i></div>
+                        <h3 class="value-title">التعاون والمشاركة</h3>
+                    </div>
+                    <p class="value-description">العمل بروح الفريق الواحد ومساعدة الأهل والأصدقاء برغبة صادقة.</p>
+                    <div class="value-example"><i class="fa-solid fa-quote-right" style="color: var(--color-accent-pink);"></i> مثال: التشارك في الألعاب وإعداد مائدة الطعام العائلية.</div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon-box"><i class="fa-solid fa-hands-respecting"></i></div>
+                        <h3 class="value-title">الاحترام والتقدير</h3>
+                    </div>
+                    <p class="value-description">الاستماع للآخرين، احترام الكبار، وحفظ ألقاب اللباقة في التعامل اليومي.</p>
+                    <div class="value-example"><i class="fa-solid fa-quote-right" style="color: var(--color-accent-pink);"></i> مثال: الاستئذان قبل استخدام أشياء الآخرين والإنصات للحديث.</div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon-box"><i class="fa-solid fa-seedling"></i></div>
+                        <h3 class="value-title">المسؤولية والعناية</h3>
+                    </div>
+                    <p class="value-description">الاهتمام بالممتلكات الشخصية والرفق بالحيوات والنباتات من حولنا.</p>
+                    <div class="value-example"><i class="fa-solid fa-quote-right" style="color: var(--color-accent-pink);"></i> مثال: سقاية النبتة الصغيرة والحفاظ على نظافة المكان.</div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon-box"><i class="fa-solid fa-gift"></i></div>
+                        <h3 class="value-title">الكرم والعطاء</h3>
+                    </div>
+                    <p class="value-description">مشاركة الخير مع الآخرين والشعور بمتعة إدخال السرور على قلوبهم.</p>
+                    <div class="value-example"><i class="fa-solid fa-quote-right" style="color: var(--color-accent-pink);"></i> مثال: تقديم إحدى اللعب المحببة لصديق أو طفل آخر.</div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon-box"><i class="fa-solid fa-landmark"></i></div>
+                        <h3 class="value-title">الانتماء والاعتزاز</h3>
+                    </div>
+                    <p class="value-description">التعرف على جمال لغتنا العربية وعاداتنا وتقاليدنا الدافئة بحب وشغف.</p>
+                    <div class="value-example"><i class="fa-solid fa-quote-right" style="color: var(--color-accent-pink);"></i> مثال: استخدام الكلمات العربية الجميلة والاعتزاز بالتراث.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       ARAB CULTURE SECTION
+       ========================================================================== -->
+    <section class="section-padding culture-section" id="culture">
+        <div class="arch-pattern"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="section-header">
+                <div class="section-badge">جذورنا وأصالتنا</div>
+                <h2 class="section-title">عالم يشبهنا… وحكايات تكبر مع أطفالنا</h2>
+                <p class="section-subtitle">نعيد ربط أطفالنا بالثقافة العربية بأسلوب عصري قريب من وجدانهم وحياتهم اليومية.</p>
+            </div>
+
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="culture-card-icon"><i class="fa-solid fa-users-between-lines"></i></div>
+                    <h3 class="culture-card-title">الدفء الأسري والمجتمعي</h3>
+                    <p class="culture-card-desc">ترسيخ أهمية الجلسات العائلية، احترام الجار، وصلة الرحم بروح ملؤها المحبة والوئام.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div class="culture-card-icon"><i class="fa-solid fa-language"></i></div>
+                    <h3 class="culture-card-title">اللغة العربية الشائقة</h3>
+                    <p class="culture-card-desc">تقديم لغة عربية سليمة ومبسطة من خلال حكايات صوتية وألعاب لغوية ممتعة.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div class="culture-card-icon"><i class="fa-solid fa-mosque"></i></div>
+                    <h3 class="culture-card-title">عمارة وبيئة معبرة</h3>
+                    <p class="culture-card-desc">رسومات ومناظر من وحي مدننا العربية، تفاصيل منازلنا الدافئة وأجوائنا الجميلة.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div class="culture-card-icon"><i class="fa-solid fa-book-journal-whills"></i></div>
+                    <h3 class="culture-card-title">شخصيات ومواقف ملهبة</h3>
+                    <p class="culture-card-desc">استلهام مواقف الحكمة والشهامة من تاريخنا بأسلوب يناسب خيال طفل اليوم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       APP EXPERIENCE SHOWCASE
+       ========================================================================== -->
+    <section class="section-padding showcase-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">تجربة التطبيق</div>
+                <h2 class="section-title">استكشف واجهة التطبيق التفاعلية</h2>
+                <p class="section-subtitle">تصميم بصرية مريحة للعين، سهلة الاستخدام للأطفال وتضمن رحلة آمنة وممتعة.</p>
+            </div>
+
+            <div class="screens-switcher">
+                <button class="screen-btn active" onclick="switchAppScreen(0)">الشاشة الرئيسية</button>
+                <button class="screen-btn" onclick="switchAppScreen(1)">قصة تفاعلية</button>
+                <button class="screen-btn" onclick="switchAppScreen(2)">تحدي القيمة</button>
+                <button class="screen-btn" onclick="switchAppScreen(3)">شجرة الإنجازات</button>
+            </div>
+
+            <div class="screen-preview-container">
+                <div class="preview-phone-wrap">
+                    <div class="phone-mockup" style="width: 250px; height: 500px;">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen" id="appScreenDynamic">
+                            <!-- Dynamic UI Content Inserted via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-details">
+                    <h3 class="preview-details-title" id="screenTitle">الشاشة الرئيسية والتصفح السهل</h3>
+                    <p class="preview-details-text" id="screenDesc">
+                        واجهة مصممة للأطفال بألوان مريحة وأيقونات واضحة تتيح للطفل تنقل بأسلوب استكشافي مشوّق بدون تعقيدات.
+                    </p>
+                    <ul class="feature-check-list">
+                        <li class="feature-check-item"><i class="fa-solid fa-circle-check"></i> تناسب خيال الأطفال ومراحلهم العمرية</li>
+                        <li class="feature-check-item"><i class="fa-solid fa-circle-check"></i> أصوات توجيهية باللغة العربية الفصحى المبسطة</li>
+                        <li class="feature-check-item"><i class="fa-solid fa-circle-check"></i> خالية من المشتتات والردود العشوائية</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       PARENTS TRUST & REASSURANCE
+       ========================================================================== -->
+    <section class="section-padding parents-section" id="parents">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">راحة بال الوالدين</div>
+                <h2 class="section-title">صُمم ليكون الشريك الأمثل للأهل</h2>
+                <p class="section-subtitle">نضع ثقة الأهل في مقدمة أولوياتنا من خلال بيئة آمنة ومحتوى تربوي موثوق.</p>
+            </div>
+
+            <div class="parents-card-grid">
+                <div class="parent-feature-card">
+                    <div class="parent-feature-icon"><i class="fa-solid fa-shield-cat"></i></div>
+                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 0.6rem;">بيئة آمنة تماماً</h3>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">محتوى منقّى ومناسب للأطفال بدون إعلانات مزعجة أو روابط خارجية غير آمنة.</p>
+                </div>
+
+                <div class="parent-feature-card">
+                    <div class="parent-feature-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 0.6rem;">جسر للحوار الأسري</h3>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">نقدم للأهل ملخصات ومواضيع مقترحة للنقاش مع الطفل حول القيم اليومية.</p>
+                </div>
+
+                <div class="parent-feature-card">
+                    <div class="parent-feature-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <h3 style="color: var(--color-primary); font-size: 1.25rem; margin-bottom: 0.6rem;">استثمار هادف للوقت</h3>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">تحويل الشاشة من وسيلة لاستهلاك الوقت إلى أداة بناء شخصية إيجابية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       FINAL CTA & EARLY ACCESS FORM
+       ========================================================================== -->
+    <section class="section-padding cta-section" id="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2 class="cta-title">خلّي الشخصيات اللي بحبّها… تترك أثرًا جميلًا في حياته.</h2>
+                <p class="cta-subtitle">اكتشفوا عالمًا يجمع الخيال والقيم والثقافة العربية في تجربة واحدة. كن أول من يخوض التجربة عند الإطلاق!</p>
+
+                <form class="early-access-form" id="earlyAccessForm" onsubmit="handleFormSubmit(event)">
+                    <input type="email" class="form-input" placeholder="أدخل بريدك الإلكتروني ليصلك كل جديد..." required id="userEmail">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i> سجّل اهتمامك
+                    </button>
+                </form>
+                <div class="form-message" id="formMessage">
+                    <i class="fa-solid fa-circle-check"></i> شكرًا لاهتمامك! سنبقيك على اطلاع بأحدث الأخبار والتسجيل المبكر.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="color: white;">
+                        <div class="logo-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                        <div class="logo-text" style="color: white;">عالم<span style="color: var(--color-accent-pink);">القيم</span></div>
+                    </a>
+                    <p>تطبيق أطفال يجمع بين التسلية الممتعة والقيم الأصيلة ليعزز ارتباط الطفل بثقافته ويهيئ له بيئة نمو رقمية آمنة.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">روابط السريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">عن الفكرة</a></li>
+                        <li><a href="#characters">عالم الشخصيات</a></li>
+                        <li><a href="#values">القيم والمبادئ</a></li>
+                        <li><a href="#culture">الثقافة العربية</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">الأهل والمجتمع</h4>
+                    <ul class="footer-links">
+                        <li><a href="#parents">دليل الوالدين</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">تواصل معنا</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: rgba(255,255,255,0.7);">يسعدنا تواصلكم واقتراحاتكم لتطوير التجربة التعليمية.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="تويتر"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="انستغرام"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="يوتيوب"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>جميع الحقوق محفوظة © <span id="currentYear"></span> عالم القيم والأطفال.</div>
+                <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">تم التصميم وفق معايير سلامة المحتوى الموجه للأطفال.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+    <script>
+        // Set dynamic year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Shadow Toggle
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Hamburger Menu
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const isOpen = navMenu.classList.contains('open');
+            hamburgerBtn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                hamburgerBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+
+        // CHARACTER SHOWCASE DATA
+        const characters = [
+            {
+                name: "سند",
+                value: "قيمة التعاون والمساعدة",
+                role: "صديق الجميع ورمز الشهامة والعمل الجماعي",
+                desc: "سند طفل ذكي يحب الاكتشاف وتجربة بناء الأشياء مع أصدقائه. يتعلم الطفل مع سند كيف يكون عوناً للآخرين وكيف أن القوة الحقيقية تكمن في الاتحاد والمشاركة.",
+                scenario: "عندما تتناثر الألعاب في الغرفة، يبادر سند بتنظيم مسابقة ممتعة للجمع والتنظيم مع إخوته بابتسامة.",
+                color: "#76C0EC",
+                bgGradient: "linear-gradient(135deg, #76C0EC, #FFF6DC)"
+            },
+            {
+                name: "نور",
+                value: "قيمة الصدق والفضول المعرفي",
+                role: "صديقة الشغف وحب الاستطلاع الصادق",
+                desc: "نور تحب قراءة الكتب وملاحظة الطبيعة. تعلّم الأطفال حلاوة قول الحقيقة والبحث عن المعرفة بأمانة وشغف.",
+                scenario: "عندما سألتها الأم عن زهرتها المكسورة، اعترفت نور بالصدق فوراً، فاحتضنتها أمها لصدقها وشجاعتها.",
+                color: "#FF95A5",
+                bgGradient: "linear-gradient(135deg, #FF95A5, #FFF6DC)"
+            },
+            {
+                name: "كرم",
+                value: "قيمة الجود والعطاء",
+                role: "رمز السخاء ومشاركة الخير",
+                desc: "كرم طفل بشوش يحب إهداء أصدقائه ومشاركتهم ألعابه وطعامه، ويعلم الطفل أن العطاء يزيد القلوب فرحاً ومحبة.",
+                scenario: "في نزهة الحديقة، شارك كرم شطيرته المحببة مع صديقه الذي نسي طعامه ببهجة وسرور.",
+                color: "#425B9A",
+                bgGradient: "linear-gradient(135deg, #425B9A, #76C0EC)"
+            },
+            {
+                name: "سلمى",
+                value: "قيمة الاحترام والمسؤولية",
+                role: "رمز اللباقة والعناية بالغير",
+                desc: "سلمى طفلة مرتبة تحترم أوقات العائلة وتعتني بحديقتها الصغيرة، وتزرع في الطفل حس المسؤولية والرفق بالمحيط.",
+                scenario: "تسلم سلمى على جيرانها بأدب وتستأذن دائماً قبل استعارة أي شيء بلباقة وابتسامة.",
+                color: "#5A74B8",
+                bgGradient: "linear-gradient(135deg, #FFF6DC, #FF95A5)"
+            }
+        ];
+
+        function switchCharacter(index) {
+            const char = characters[index];
+            const buttons = document.querySelectorAll('.char-tab-btn');
+            
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            document.getElementById('charName').textContent = char.name;
+            document.getElementById('charValue').textContent = char.value;
+            document.getElementById('charRole').textContent = char.role;
+            document.getElementById('charDesc').textContent = char.desc;
+            document.getElementById('charScenario').textContent = char.scenario;
+            
+            const svgCircle = document.getElementById('charSvg').querySelector('circle');
+            if(svgCircle) svgCircle.setAttribute('fill', char.color);
+        }
+
+        // APP SCREEN SHOWCASE DATA
+        const appScreens = [
+            {
+                title: "الشاشة الرئيسية والتصفح السهل",
+                desc: "واجهة مصممة للأطفال بألوان مريحة وأيقونات واضحة تتيح للطفل التنقل بأسلوب استكشافي مشوّق بدون تعقيدات.",
+                html: `
+                    <div class="app-screen-header">
+                        <div style="font-size:0.8rem;">عالم الأبطال</div>
+                        <div style="font-weight:800;">مرحباً بك اليوم!</div>
+                    </div>
+                    <div class="app-screen-body">
+                        <div class="app-card-mini">
+                            <div class="app-card-icon"><i class="fa-solid fa-play"></i></div>
+                            <div>
+                                <div style="font-weight:800; font-size:0.8rem; color:var(--color-primary);">ابدأ التحدي</div>
+                                <div style="font-size:0.7rem; color:var(--color-text-muted);">سر المساعدة مع سند</div>
+                            </div>
+                        </div>
+                        <div class="app-card-mini" style="background:#FFF0F2;">
+                            <div class="app-card-icon" style="background:var(--color-accent-pink); color:white;"><i class="fa-solid fa-book"></i></div>
+                            <div>
+                                <div style="font-weight:800; font-size:0.8rem; color:var(--color-primary);">قصة اليوم</div>
+                                <div style="font-size:0.7rem; color:var(--color-text-muted);">عطاء كرم في العيد</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "حكايات تفاعلية بأصوات دافئة",
+                desc: "قصص تفاعلية تتيح للطفل اختيار المواقف وحل المشكلات، مما يرسخ مفهوم القيمة التربوية عبر الاستنتاج الذاتي.",
+                html: `
+                    <div class="app-screen-header" style="background:var(--color-primary-dark);">
+                        <div style="font-size:0.8rem;">حكاية التسامح</div>
+                        <div style="font-weight:800;">ماذا يفعل سند؟</div>
+                    </div>
+                    <div class="app-screen-body">
+                        <div style="background:white; padding:0.8rem; border-radius:12px; font-size:0.75rem; text-align:center; color:var(--color-text-main);">
+                            "كسر العصفور الصغير غصن الشجرة بالخطأ... ماذا يختار سند؟"
+                        </div>
+                        <div class="app-card-mini" style="border:1.5px solid var(--color-secondary);">
+                            <div style="font-weight:700; font-size:0.75rem; color:var(--color-primary);">1. يساعده على إصلاحه بابتسامة</div>
+                        </div>
+                        <div class="app-card-mini">
+                            <div style="font-weight:700; font-size:0.75rem; color:var(--color-text-muted);">2. يسامحه ويعلمه الرعاية</div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "تحديات سلوكية في الحياة اليومية",
+                desc: "تحديات خفيفة تحفز الطفل على تطبيق ما تعلمه داخل المنزل ومع الأسرة لربط العالم الرقمي بالواقع.",
+                html: `
+                    <div class="app-screen-header" style="background:var(--color-accent-pink);">
+                        <div style="font-size:0.8rem;">تحدي اليوم</div>
+                        <div style="font-weight:800;">مهمة البطل الصغير</div>
+                    </div>
+                    <div class="app-screen-body">
+                        <div style="text-align:center; padding:0.5rem;">
+                            <i class="fa-solid fa-hand-holding-heart" style="font-size:2rem; color:var(--color-accent-pink);"></i>
+                            <div style="font-weight:800; font-size:0.85rem; margin-top:0.3rem;">ساعد والداك في ترتيب المائدة</div>
+                        </div>
+                        <button style="background:var(--color-secondary); border:none; padding:0.5rem; border-radius:10px; font-weight:700; font-size:0.75rem; color:var(--color-primary-dark); cursor:pointer;">
+                            تمت المهمة بنجاح! ⭐
+                        </button>
+                    </div>
+                `
+            },
+            {
+                title: "شجرة الإنجازات والتحفيز الإيجابي",
+                desc: "نظام مكافآت معنوي نموّل فيه 'شجرة القيم' الخاصة بالطفل كلما أتم سلوكاً طيباً، مما يعزز تقديره لذاته.",
+                html: `
+                    <div class="app-screen-header" style="background:#2E7D32;">
+                        <div style="font-size:0.8rem;">شجرتي المزهرة</div>
+                        <div style="font-weight:800;">12 ورقة خضراء جديدة</div>
+                    </div>
+                    <div class="app-screen-body" style="align-items:center; justify-content:center; text-align:center;">
+                        <i class="fa-solid fa-tree" style="font-size:3.5rem; color:#4CAF50;"></i>
+                        <div style="font-size:0.75rem; color:var(--color-text-muted); margin-top:0.5rem;">
+                            شجرتك تكبر مع كل عمل طيب تقوم به!
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        function switchAppScreen(index) {
+            const screen = appScreens[index];
+            const buttons = document.querySelectorAll('.screen-btn');
+
+            buttons.forEach((btn, i) => {
+                if (i === index) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            document.getElementById('screenTitle').textContent = screen.title;
+            document.getElementById('screenDesc').textContent = screen.desc;
+            document.getElementById('appScreenDynamic').innerHTML = screen.html;
+        }
+
+        // Initialize default screen
+        switchAppScreen(0);
+
+        // Early Access Form Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('userEmail');
+            const message = document.getElementById('formMessage');
+
+            if (input.value) {
+                message.style.display = 'block';
+                input.value = '';
+                setTimeout(() => {
+                    message.style.opacity = '0';
+                    setTimeout(() => {
+                        message.style.display = 'none';
+                        message.style.opacity = '1';
+                    }, 500);
+                }, 4000);
+            }
+        }
+    </script>
+</body>
+</html>
